@@ -101,9 +101,18 @@ personal usage
   {
     "tag": "代码示例",
     "color": "#99BBFF"
+  },
+  {
+    "tag": "弃案",
+    "color": "#9400D3"
+  },
+  {
+    "tag": "解决",
+    "color": "#CCEEFF"
   }
 ]
 ~~~
+
 
 
 
