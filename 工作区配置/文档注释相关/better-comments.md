@@ -97,9 +97,14 @@ personal usage
   {
     "tag": "说明",
     "color":"#33FFDD"
-  } 
+  },
+  {
+    "tag": "代码示例",
+    "color": "#99BBFF"
+  }
 ]
 ~~~
+
 
 
 
