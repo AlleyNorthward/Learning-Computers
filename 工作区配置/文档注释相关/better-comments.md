@@ -93,9 +93,14 @@ personal usage
   {
     "tag": "待优化",
     "color": "#D28EFF"
-  }
+  },
+  {
+    "tag": "说明",
+    "color":"#33FFDD"
+  } 
 ]
 ~~~
+
 
 
 
