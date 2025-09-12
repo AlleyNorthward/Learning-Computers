@@ -103,15 +103,24 @@ personal usage
     "color": "#99BBFF"
   },
   {
-    "tag": "弃案",
-    "color": "#9400D3"
+    "tag": "解决方法",
+    "color": "#D87093 "
   },
   {
-    "tag": "解决",
-    "color": "#CCEEFF"
-  }
+    "tag": "已解决",
+    "color": "#F0E68C"
+  },
+  {
+    "tag": "修改日志",
+    "color": "#DCDCDC"
+  },
+  {
+    "tag": "待办",
+    "color": "#008B8B"
+  },
 ]
 ~~~
+
 
 
 
