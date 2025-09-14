@@ -75,51 +75,56 @@ personal usage
     "color": "#98C379"
   },
   {
-    "tag": "属性",
+    "tag": "_属性",
     "color": "#FF44AA"
   },
   {
-    "tag": "方法",
+    "tag": "_方法",
     "color": "#FFA488"
   },
   {
-    "tag": "私有方法",
-    "color": "#AA7700 ",
+    "tag": "_私有方法",
+    "color": "#C63300",
   },
   {
-    "tag": "公有方法",
+    "tag": "_公有方法",
     "color": "#FFDD55"
   },
   {
-    "tag": "待优化",
+    "tag": "_待优化",
     "color": "#D28EFF"
   },
   {
-    "tag": "说明",
+    "tag": "_说明",
     "color":"#33FFDD"
   },
   {
-    "tag": "代码示例",
+    "tag": "_代码示例",
     "color": "#99BBFF"
   },
   {
-    "tag": "解决方法",
+    "tag": "_弃案",
+    "color": "#9400D3"
+  },
+  {
+    "tag": "_解决方法",
     "color": "#D87093 "
   },
   {
-    "tag": "已解决",
+    "tag": "_已解决",
     "color": "#F0E68C"
   },
   {
-    "tag": "修改日志",
+    "tag": "_修改日志",
     "color": "#DCDCDC"
   },
   {
-    "tag": "待办",
+    "tag": "_待办",
     "color": "#008B8B"
   },
 ]
 ~~~
+
 
 
 
