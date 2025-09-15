@@ -166,6 +166,68 @@ git clone git@github.com:AlleyNorthward/VSCode-Usage-Summary.git
 
 感觉能避免网络限制
 
+# 分支解析
+明确,本地分支与远程分支不一致,需要建立联系即可
+## 本地分支提交
+- 如果本地分支提交,最后仍然push main,无任何发生.只能本地main提交到远程main,非常安全
+## 块状管理
+项目包含的每一部分,单独对其操作,就是建立对应分支,块状化管理、编写.所以需要要求我们会创建本地私有分支,同步创建远程分支,建立联系,整合到main
+
+# 分支详解
+## 本地分支操作
+- 查看分支
+~~~go
+git branch
+~~~
+- 新建分支
+~~~go
+git checkout -b name
+~~~
+- 删除分支
+~~~go
+git branch -d name (安全删除,如有未整合内容,无法删除)
+git branch -D name (强制删除)
+~~~
+- 分支转换
+~~~go
+git switch
+~~~
+
+## 远程分支操作
+### 本地创建远程分支
+- 查看远程分支
+~~~go
+git branch -r
+~~~
+
+- 远程分支建立
+~~~go
+git push -u origin name (-u 建立联系.本地建立后,第一次上传这么操作，之后恢复原装就好)
+~~~
+- 远程分支删除
+~~~go
+git push origin --delete name
+~~~
+
+### github建立远程带回本地
+~~~go
+git fetch origin
+git checkout -b dev origin/dev
+~~~
+
+## 远程分支本地分支建立联系
+~~~go
+git push -u origin 分支名
+git checkout -b 本地分支名 origin/远程分支名
+git branch -u origin/远程分支名 本地分支名
+~~~
+
+## 查看分支联系
+~~~go
+git branch -vv
+~~~
+
+
 # 安全的git操作方式
 
 - 查看分支
@@ -192,10 +254,25 @@ git status
 ~~~
 确认无提交,无修改
 - 提交
+此时,有多种选择.
+
+①提交到新建远程分支
 ~~~go
 git add -A
 git commit -m "提交修改"
-git push origin my-feature
+git push -u origin my-feature
+~~~
+②提交到远程主分支
+~~~go
+git add -A
+git commit -m "保存当前修改"
+git checkout main (转换到主分支,之间转换不行)
+git merge my-feature
+
+或者
+git stash
+git checkout main
+git stash pop (类似, 不如上面的安全)
 ~~~
 - 合并分支
 先切换到主分支
