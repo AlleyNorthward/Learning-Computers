@@ -1,6 +1,30 @@
 [TOC]
 
 # git命令行使用
+## origin
+main是本地 origin main是远程
+1️⃣ 什么时候会用 origin/main
+操作	用法示例	说明
+拉取远程更新	git pull origin main	把远程仓库 origin 的 main 拉到本地，默认会合并到你当前分支
+查看差异	git log main..origin/main	看远程比本地多的提交
+合并远程到本地	git merge origin/main	把远程 main 的更新合并到当前分支
+推送到远程	git push origin main	把本地 main 的提交推送到远程 main
+
+2️⃣ 为什么是 origin/main 而不是 main
+
+main → 你本地分支，可以修改、提交
+
+origin/main → 本地保存的 远程 main 的快照，不能直接改
+
+所以 pull / fetch / merge / log 想参考远程状态时，就用 origin/main
+
+3️⃣ 本地操作不需要 origin/main
+
+只在本地切分支、合并本地分支、提交等操作，一般直接用本地分支名就行：
+
+git checkout main
+git merge dev
+git commit -m "合并 dev 分支"
 
 ## 克隆仓库
 
@@ -227,69 +251,6 @@ git branch -u origin/远程分支名 本地分支名
 git branch -vv
 ~~~
 
-
-# 安全的git操作方式
-
-- 查看分支
-~~~go
-git status
-git branch
-~~~
-- 如果有多分支,切换到对应分支
-~~~go
-git checkout main 切换主分支
-git checkout my-feature 切换到个人对应分支
-~~~
-- 同步仓库
-~~~go
-git pull origin main
-~~~
-- 创建新分支(不要直接在主分支上修改, 保护主分支)
-~~~go
-git checkout -b my-featuer (创建并切换到该分支)
-~~~
-- 再次检查仓库状态
-~~~go
-git status
-~~~
-确认无提交,无修改
-- 提交
-此时,有多种选择.
-
-①提交到新建远程分支
-~~~go
-git add -A
-git commit -m "提交修改"
-git push -u origin my-feature
-~~~
-②提交到远程主分支
-~~~go
-git add -A
-git commit -m "保存当前修改"
-git checkout main (转换到主分支,之间转换不行)
-git merge my-feature
-
-或者
-git stash
-git checkout main
-git stash pop (类似, 不如上面的安全)
-~~~
-- 合并分支
-先切换到主分支
-~~~go
-git checkout origin main
-~~~
-- 合并
-~~~go
-git merge my-feature
-~~~
-- 如有冲突
-解决冲突即可
-- 推送
-~~~go
-git push origin main
-~~~
-
 # 分支解析
 明确,本地分支与远程分支不一致,需要建立联系即可
 ## 本地分支提交
@@ -345,4 +306,51 @@ git branch -u origin/远程分支名 本地分支名
 ## 查看分支联系
 ~~~go
 git branch -vv
+~~~
+
+# 安全的git操作方式
+
+- 查看分支
+~~~go
+git status
+git branch
+~~~
+- 如果有多分支,切换到对应分支
+~~~go
+git checkout main 切换主分支
+git checkout my-feature 切换到个人对应分支
+~~~
+- 同步仓库
+~~~go
+git pull origin main
+~~~
+- 创建新分支(不要直接在主分支上修改, 保护主分支)
+~~~go
+git checkout -b my-featuer (创建并切换到该分支)
+~~~
+- 再次检查仓库状态
+~~~go
+git status
+~~~
+确认无提交,无修改
+- 提交
+此时,有多种选择.
+
+①提交到新建远程分支
+~~~go
+git add -A
+git commit -m "提交修改"
+git push -u origin my-feature
+~~~
+②提交到远程主分支
+~~~go
+git add -A
+git commit -m "保存当前修改"
+git checkout main (转换到主分支,之间转换不行)
+git merge my-feature
+
+或者
+git stash
+git checkout main
+git stash pop (类似, 不如上面的安全)
 ~~~
