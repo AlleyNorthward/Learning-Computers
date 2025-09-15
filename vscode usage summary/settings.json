@@ -1,0 +1,73 @@
+{
+    "better-comments.tags": [
+  {
+    "tag": "!",
+    "color": "#FF2D00"
+  },
+  {
+    "tag": "?",
+    "color": "#3498DB"
+  },
+  {
+    "tag": "//",
+    "color": "#474747",
+    "strikethrough": true
+  },
+  {
+    "tag": "todo",
+    "color": "#FF8C00"
+  },
+  {
+    "tag": "*",
+    "color": "#98C379"
+  },
+  {
+    "tag": "属性",
+    "color": "#FF44AA"
+  },
+  {
+    "tag": "方法",
+    "color": "#FFA488"
+  },
+  {
+    "tag": "私有方法",
+    "color": "#C63300",
+  },
+  {
+    "tag": "公有方法",
+    "color": "#FFDD55"
+  },
+  {
+    "tag": "待优化",
+    "color": "#D28EFF"
+  },
+  {
+    "tag": "说明",
+    "color":"#33FFDD"
+  },
+  {
+    "tag": "代码示例",
+    "color": "#99BBFF"
+  },
+  {
+    "tag": "弃案",
+    "color": "#9400D3"
+  },
+  {
+    "tag": "解决方法",
+    "color": "#D87093 "
+  },
+  {
+    "tag": "已解决",
+    "color": "#F0E68C"
+  },
+  {
+    "tag": "修改日志",
+    "color": "#DCDCDC"
+  },
+  {
+    "tag": "待办",
+    "color": "#008B8B"
+  },
+]
+}
