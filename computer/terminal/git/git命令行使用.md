@@ -212,3 +212,6 @@ git merge my-feature
 ~~~go
 git push origin main
 ~~~
+
+# 分支解析
+明确,本地分支与远程分支不一致,需要建立联系即可
