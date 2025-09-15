@@ -166,5 +166,49 @@ git clone git@github.com:AlleyNorthward/VSCode-Usage-Summary.git
 
 感觉能避免网络限制
 
+# 安全的git操作方式
 
-
+- 查看分支
+~~~go
+git status
+git branch
+~~~
+- 如果有多分支,切换到对应分支
+~~~go
+git checkout main 切换主分支
+git checkout my-feature 切换到个人对应分支
+~~~
+- 同步仓库
+~~~go
+git pull origin main
+~~~
+- 创建新分支(不要直接在主分支上修改, 保护主分支)
+~~~go
+git checkout -b my-featuer (创建并切换到该分支)
+~~~
+- 再次检查仓库状态
+~~~go
+git status
+~~~
+确认无提交,无修改
+- 提交
+~~~go
+git add -A
+git commit -m "提交修改"
+git push origin my-feature
+~~~
+- 合并分支
+先切换到主分支
+~~~go
+git checkout origin main
+~~~
+- 合并
+~~~go
+git merge my-feature
+~~~
+- 如有冲突
+解决冲突即可
+- 推送
+~~~go
+git push origin main
+~~~
