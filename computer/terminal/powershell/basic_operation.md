@@ -59,4 +59,15 @@ Move-Item file1.txt -Destination newfolder\file1_new.txt
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -EditMode Windows
 
+# 15.配置自己命令行,快速打开文件
+
+- vim打开文件
+`nvim $PROFILE`
+
+- 设置函数
+```powershell
+function myfile {
+    nvim "F:\test.py"
+}
+```
 
