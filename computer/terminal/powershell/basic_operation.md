@@ -71,4 +71,5 @@ function myfile {
     nvim "F:\test.py"
 }
 ```
-
+# 16.窗口最小化
+win+下,最小化是win+下x2
