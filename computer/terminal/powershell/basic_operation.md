@@ -29,6 +29,7 @@ ls/dir
 # 6.终端分屏
 
 alt shift D
+修改了,ctrl shift i
 
 # 7.删除当前页面
 
