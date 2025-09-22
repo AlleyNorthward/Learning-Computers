@@ -28,4 +28,8 @@ function Open-xxt{
 function Open-path{
         nvim "F:\0github\Learning-Computers\computer\terminal\powershell\powershell-module\package\path_marks.json"
 }
+
+function Open-github{
+	& "C:\Program Files\Google\Chrome\Application\chrome.exe" "https://github.com"
+}
 Export-ModuleMember -Function *
