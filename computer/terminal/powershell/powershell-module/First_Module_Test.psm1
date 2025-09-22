@@ -25,7 +25,7 @@ function Open-xxt{
 }
 
 
-function Open-path{
+function Show-path{
         nvim "F:\0github\Learning-Computers\computer\terminal\powershell\powershell-module\package\path_marks.json"
 }
 
