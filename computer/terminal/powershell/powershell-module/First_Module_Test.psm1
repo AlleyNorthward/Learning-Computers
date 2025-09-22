@@ -7,33 +7,25 @@ function Start-manim{
 }
 
 function Edit-profile{
-	nvim F:\0github\Learning-Computers\computer\terminal\powershell\Microsoft.PowerShell_profile.ps1
+	nvim "F:\0github\Learning-Computers\computer\terminal\powershell\powershell-module\First_Module_Test.psm1"
 }
 
 function Copy-path{
         pwd | Select-Object -ExpandProperty Path | Set-Clipboard
 }
 
-function Open_github{
-	cd F:\0github
-}
 
-function Open_gpt{
+function Open-gpt{
 	& "C:\Program Files\Google\Chrome\Application\chrome.exe" "https://chatgpt.com/"
 }
 
-function Move_ps{
-	cd F:\Project-Simulation\simulation0
-}
 
-function Open_xxt{
+function Open-xxt{
 	start "https://i.chaoxing.com/base?vflag=true&fid=&backUrl="
 }
 
-function Move_computer{
-	cd F:\0github\Learning-Computers\computer
-}
 
-function Move_mobject{
-	cd F:\0github\Manim-Mobject\Mobject
+function Open-path{
+        nvim "F:\0github\Learning-Computers\computer\terminal\powershell\powershell-module\package\path_marks.json"
 }
+Export-ModuleMember -Function *
