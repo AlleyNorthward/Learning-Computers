@@ -20,6 +20,9 @@
 # 5
 分支不得合并到main(不得使用merge)
 
+# 6
+不测试时,时刻退出测试分支(感觉这容易出问题啊...).
+
 # 总结
 分支只能merge origin main
 main只能add
