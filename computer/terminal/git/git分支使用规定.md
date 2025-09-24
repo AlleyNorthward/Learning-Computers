@@ -21,12 +21,14 @@
 分支不得合并到main(不得使用merge)
 
 # 6
-不测试时,时刻退出测试分支(感觉这容易出问题啊...).
+测试结束,使用git add . git commit 保存分支代码
 
 # 总结
-分支只能merge origin main
+分支需要 merge origin main, git add
 main只能add
 似乎只用这两个动作
+
+测试了origin main 与分支不一致情况下merge,目前没有任何问题.有问题时,再说.但一般情况下,分支是最新代码,不要更新到main,再通过main提交到origin main,所以之后可能不会merge origin main.只会在md文档中更新的时候选择merge.
 
 
 
