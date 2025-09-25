@@ -23,6 +23,25 @@
 # 6
 测试结束,使用git add . git commit 保存分支代码
 
+# 7
+分支提交文件到git,所需命令
+~~~git
+git ls-tree --name-only branch-test -r | Select-String A.py   
+
+git switch main
+
+git restore --source branch-test Mobject/package/A.py
+
+git add Mobject/package/A.py
+
+git commit -m "从 branch-test 合并 A.py"
+~~~
+说明.
+第一行命令,是在分支中进行,获取目标文件当前路径
+第三行是在main中,剪切branch-test对应文件(没有任何影响)
+第四五行则是更新到main
+注意,路径要保持一致,不同的话则会在main中创建其没有路径
+
 # 总结
 分支需要 merge origin main, git add
 main只能add
