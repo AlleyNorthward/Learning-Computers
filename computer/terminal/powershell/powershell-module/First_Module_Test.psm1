@@ -21,7 +21,7 @@ function Open-gpt{
 
 
 function Open-xxt{
-	start "https://i.chaoxing.com/base?vflag=true&fid=&backUrl="
+	start "https://mooc2-ans.chaoxing.com/mooc2-ans/mycourse/stu?courseid=227595041&clazzid=126777158&cpi=340219436&enc=3d4e0f77a3654995081514b49e2b98bc&t=1759227129168&pageHeader=21&v=0&hideHead=0"
 }
 
 
