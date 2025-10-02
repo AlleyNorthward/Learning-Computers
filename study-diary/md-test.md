@@ -27,10 +27,10 @@ pip install mypackage
 
 ## 导入图片测试
 ### 正常测试
-![svg图片导入测试](assets/A.svg)
-或者带有title的
-![svg图片导入测试](assets/A.svg "这里是图片的标题")
-缺点是这些没法居中表示,图片偏左
+![svg图片导入测试](assets/A.svg)</br>
+或者带有title的</br>
+![svg图片导入测试](assets/A.svg "这里是图片的标题")</br>
+缺点是这些没法居中表示,图片偏左,而且需要手动换行</br>
 
 ### 居中测试
 <p align="center">
