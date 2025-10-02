@@ -27,4 +27,12 @@ pip install mypackage
 ```
 
 ## 导入图片测试
+### 正常测试
 ![svg图片导入测试](assets/A.svg)
+
+
+### 居中测试
+<p align="center">
+  <img src="assets/A.svg" alt="svg图片导入测试">
+</p>
+
