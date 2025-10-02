@@ -51,3 +51,13 @@ pip install mypackage
     </a>
 </p>
 
+### 图片超链接居中title测试
+
+<p align="center">
+    <a href = "https://github.com" target="_blank">
+        <img src="assets/A.svg" alt="svg图片导入测试" title = "title测试">
+    </a>
+</p>
+
+
+
