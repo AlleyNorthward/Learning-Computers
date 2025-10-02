@@ -36,3 +36,10 @@ pip install mypackage
   <img src="assets/A.svg" alt="svg图片导入测试">
 </p>
 
+
+### 图片超链接测试
+
+<a href="https://your-link.com" target="_blank">
+  <img src="assets/A.svg" alt="svg图片导入测试" style="display: block; margin: 0 auto;">
+</a>
+
