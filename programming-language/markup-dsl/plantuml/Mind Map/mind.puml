@@ -1,0 +1,15 @@
+@startmindmap mind
+top to bottom direction
+*[#red] 1
+** 2
+***_ 4
+***_ 5
+** 3
+*** 6
+*** 7
+
+top side
+
+** 22 
+*** 44
+@endmindmap

@@ -1,0 +1,21 @@
+@startgantt gantt
+[Prototype design] requires 15 days
+
+Project starts 2020-07-01
+
+[Prototype design] starts 2020-07-01
+[Test prototype] starts 2020-7-16 and ends 2020-7-25
+[Test prototype] starts at [Prototype design]'s end
+[嗯哼] starts at [Prototype design]'s end and requires 5 days
+[你好啊,嘿嘿嘿哈] as [T] starts 2020-7-18 and requires 7 days
+[Tasks 7 days] as [T7] starts 2020-7-6 and requires 7 days
+[嗯哼o] happens at [T]'s end
+[只因] happens at 2020-7-13
+--切割测试--
+
+[Prototype design] is colored in lightgreen
+[Test prototype] is colored in LightBlue
+[T] is colored in pink
+[T7] is colored in LightSkyBlue
+[T7] is 50% completed
+@endgantt

@@ -1,0 +1,49 @@
+@startuml class
+abstract        abstract
+abstract class  "abstract class"
+annotation      annotation
+entity          entity
+enum            enum
+exception       exception
+interface       interface
+metaclass       metaclass
+protocol        protocol
+stereotype      stereotype
+struct          struct
+
+hide struct members
+hide stereotype members
+struct --|> stereotype
+struct <|.. stereotype
+
+hide protocol members
+hide metaclass members
+protocol -[#pink,plain,thickness=2]-> metaclass :#哦吼
+protocol <..metaclass :~包含
+
+hide interface members
+hide exception members
+interface -[#red,dashed,thickness=2]-> exception:嘿嘿嘿哈
+interface <-[#blue,dotted,thickness=2]- exception:嗯哼
+
+
+
+
+
+class class{
+    ==类型==
+    - 私有
+    + 公用
+    ~ 保内可见
+    # 受保护
+    ==其他==
+    + {static} eee
+    + {abstract} void eeee()
+    ==分隔方式==
+    ==1==
+    --2--
+    __3__
+    ..4..
+
+}
+@enduml

@@ -1,0 +1,22 @@
+@startsalt task
+{+
+{/ <b>待办事项 | 2025.10.2 21.22 | 嘿嘿 |嘿嘿嘿哈}
+    {   
+        [X] <color:green>Smooth images when zoomed
+        [X] <color:green>Confirm image deletion      
+        [ ] <color:red>Show hidden images
+        () 嗯哼
+        (X) yess    
+    }
+====
+
+{/ <b> 另一个测试|2025.10.2 21.25 | 嗯哼? | 哦哦}
+    {
+        [X] 这?
+        [] 啊?
+        [] 哈啊哈
+        () 嘿嘿嘿哈
+        (X) 喔喔
+    }
+}
+@endsalt

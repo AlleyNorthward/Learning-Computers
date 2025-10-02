@@ -1,0 +1,15 @@
+@startmindmap test
+top to bottom direction
+* 1
+** 2
+***_ 4
+***_ 5
+** 3
+*** 6
+*** 7
+
+top side
+
+** 22 
+*** 44
+@endmindmap

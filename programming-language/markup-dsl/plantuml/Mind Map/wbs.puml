@@ -1,0 +1,12 @@
+@startwbs wbs
+*[#SkyBlue] World
+** America 
+*** Canada 
+***< Mexico
+*** USA
+***< en
+** Europe
+***_  England
+***_  Germany
+***_  Spain
+@endwbs
