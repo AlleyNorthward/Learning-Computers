@@ -4,11 +4,10 @@
 
 - [介绍](#介绍)
 - [Installation Guide](#installation-guide)
-- [使用方法](#使用方法)
-  - [基本使用](#基本使用)
-  - [高级功能](#高级功能)
-- [FAQ](#faq)
-- [License](#license)
+- [导入图片测试](#导入图片测试)
+  - [正常测试](#正常测试)
+  - [居中测试](#居中测试)
+  - [图片超链接居中测试](#图片超链接居中测试)
 
 ---
 
@@ -29,35 +28,23 @@ pip install mypackage
 ## 导入图片测试
 ### 正常测试
 ![svg图片导入测试](assets/A.svg)
-
+或者带有title的
+![svg图片导入测试](assets/A.svg "这里是图片的标题")
+缺点是这些没法居中表示,图片偏左
 
 ### 居中测试
 <p align="center">
-  <img src="assets/A.svg" alt="svg图片导入测试">
+  <img src="assets/A.svg" alt="svg图片导入测试", title = "title测试">
 </p>
 
-
-### 图片超链接测试
-
-<a href="https://your-link.com" target="_blank">
-  <img src="assets/A.svg" alt="svg图片导入测试" style="display: block; margin: 0 auto;">
-</a>
 
 ### 图片超链接居中测试
-
-<p align="center">
-    <a href = "https://github.com" target="_blank">
-        <img src="assets/A.svg" alt="svg图片导入测试" style="display: block; margin: 0 auto;">
-    </a>
-</p>
-
-### 图片超链接居中title测试
 
 <p align="center">
     <a href = "https://github.com" target="_blank">
         <img src="assets/A.svg" alt="svg图片导入测试" title = "title测试">
     </a>
 </p>
-
+这是最简洁,最全面添加图片的方式了
 
 
