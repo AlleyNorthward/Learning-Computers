@@ -73,3 +73,10 @@ function myfile {
 ```
 # 16.窗口最小化
 win+下,最小化是win+下x2
+
+# 17.关闭快速启动
+`win+x`管理员终端启动
+```powershell
+powercfg -h off
+powercfg -h on
+```
