@@ -1,0 +1,19 @@
+@startuml numpy
+enum numpy{
+    + no.loadtxt()
+    + astype()
+    + np.random.seed()
+    + np.random.permutation()
+    + 二维切片
+    + np.ones()
+    + np.concatenate()
+    + np.hstack()
+    + np.linalg.inv()
+    + @
+    + T
+    + np.square
+    + mean()
+    + np.random.normal()
+    + shape[1]
+}
+@enduml

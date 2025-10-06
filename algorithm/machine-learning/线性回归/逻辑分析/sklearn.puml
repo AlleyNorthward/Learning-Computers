@@ -1,0 +1,16 @@
+@startuml sklearn
+class StandardScaler {
+    + fit()
+    + transform()
+    + fit_transform()
+    + mean_
+    + scale_
+}
+
+class LinearRegression{
+    + fit()
+    + coef_
+    + intercept_
+    + predict()
+}
+@enduml

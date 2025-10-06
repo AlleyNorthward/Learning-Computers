@@ -1,0 +1,6 @@
+@startuml python问题
+enum python问题{
+    + 二维切片(不存在该语法)
+    + yield 
+}
+@enduml
