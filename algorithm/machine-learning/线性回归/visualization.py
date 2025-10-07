@@ -4,6 +4,12 @@ from matplotlib.ticker import MaxNLocator
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 
+"""
+    @auther 巷北
+    @time 2025.10.6 11:40
+    @version 1.1
+"""
+
 class MyLinearRegression:
     def __init__(
             self,
