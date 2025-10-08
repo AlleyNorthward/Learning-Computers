@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 
 from typing import Optional
-
+from pprint import pprint
 # 说明
 """
     @auther 巷北
@@ -20,11 +20,12 @@ class MyLinearRegression:
     def __init__(
             self,
             file_name = None,
-            ratio = 0.8
+            ratio = 0.8,
+            suppress = True,
     ):
         if file_name is None:
             raise ValueTracker("请输入文件名.")
-        np.set_printoptions(linewidth=np.inf)
+        np.set_printoptions(linewidth=np.inf, suppress=suppress)
 
         self.lines, self.header = self.init_data(file_name)
         self.split_data(ratio)
@@ -294,6 +295,198 @@ class MyLinearRegression:
         return theta, rmse_loss
     
     # 好了,上面的基础操作弄得差不多了,明天再仔细弄弄算法部分.
+    # 今天来弄算法部分.
+    
+    @staticmethod
+    def batch_generator(x, y, batch_size, shuffle = True):
+        batch_count = 0
+        if shuffle:
+            idx = np.random.permutation(len(x))
+            x = x[idx]
+            y = y[idx]
+        
+        while True:
+            start = batch_count * batch_size
+            end = min(start + batch_size, len(x))
+            if start >= end:
+                break
+
+            batch_count += 1
+            yield x[start: end], y[start: end]
+
+    # 上面有test_permutation(),这里就不重复测试了.
+    
+    def test_idx(self, data):
+        if not isinstance(data, np.ndarray):
+            data = np.array(data)
+
+        print("初始数据data: ", data)
+        idx = np.random.permutation(len(data))
+        print("idx: ", idx)
+        data = data[idx]
+        print("转换后data: ", data)
+        print("对于data=data[idx]表述,只有numpy数组可以,python不可以这么表示!!")
+        print('\n')
+
+    def test_yield(self, batch_size = 32, num = 3, X_num = 128, shuffle = True, ):
+        # 注意,这里有两个num, 第一个num跟上面一致,代表查看X的可视数量
+        # X_num代表的是,这里需要进行分组的X数量.
+        # 注意, X_num / batch_size 最好为整数, 方便查看.
+
+        X = self.get_X(self.get_x_train(X_num))
+        print("查看部分X格式: \n", X[:num])
+        print("查看X长度: ", len(X))
+
+        batch_count = 0
+
+        result = []
+        if shuffle:
+            idx = np.random.permutation(len(X))
+            X = X[idx]
+        
+        while True:
+            start = batch_count * batch_size
+            end = min(start + batch_size, len(X))
+            if start >= end:
+                break
+
+            batch_count += 1
+
+            result.append((X[start:end], start, end, batch_count))
+
+        print(f"查看分成了几组: {str(len(result))}")
+        batch_count_list = [data[3] for data in result]
+        print("查看batch_size总数: \n", batch_count_list)
+        print("可见,正好等于len(X)/batch_size")
+
+        start_end = [
+            (data[1], data[2])
+            for data in result
+        ]
+        print("查看start与end: \n", start_end)
+
+        X_list = [data[0][:num] for data in result]
+        print("查看部分切割X形式: ")
+        pprint(X_list)
+        print('\n')
+        
+    def SGD(self, num_epoch, learning_rate, batch_size):
+
+        X = self.get_X(self.x_train)
+        X_test = self.get_X(self.x_test)
+
+        theta = np.random.normal(size = X.shape[1])
+
+        self.train_losses = []
+        self.test_losses = []
+
+        for _ in range(num_epoch):
+            batch_generator = self.batch_generator(
+                X,
+                self.y_train,
+                batch_size,
+            )
+            train_loss = 0
+
+            for x_batch, y_batch in batch_generator:
+
+                grad = x_batch.T @ (x_batch @ theta - y_batch)
+                theta = theta - learning_rate * grad / len(x_batch)
+                train_loss += np.square(x_batch @ theta - y_batch).sum()
+            
+            train_loss = np.sqrt(train_loss / len(X))
+            self.train_losses.append(train_loss)
+            test_loss = self.get_RMSE(X_test @ theta, self.y_test)
+            self.test_losses.append(test_loss)
+        
+        # 这里的SDG算法,就不做具体拆解了.因为我自己很清晰了,没必要再去拆解了.
+        # SDG算法更上面的两种方式类似,也是求解最优theta的,只不过上面两个涉及
+        # 的是直接公式求解,非常简单.但是如果矩阵过大,上面直接求解效率会非常低下.
+        # 而SDG求解大矩阵时,运算效率很高效.了解一下就行,知道其应用场景.
+
+    
+    def test_normal(self):
+        X = self.get_X(self.x_train)
+        theta = np.random.normal(size = X.shape[1])
+        print("查看关于X的normal theta: \n", theta)
+        print('\n')
+
+    def get_loss_plot(self, num_epoch, learning_rate, batch_size):
+        self.SGD(num_epoch, learning_rate, batch_size)
+        
+        plt.plot(np.arange(num_epoch), self.train_losses, color = 'blue', label = 'train loss')
+        plt.plot(np.arange(num_epoch), self.test_losses, color = 'red', ls = '--', label = 'test loss')
+
+        plt.gca().xaxis.set_major_locator(MaxNLocator(integer = True))
+
+        plt.xlabel('Epoch')
+        plt.ylabel('RMSE')
+        plt.legend()
+        plt.show()
+
+    def get_learning_rate_plot(
+            self,
+            num_epoch,
+            learning_rate1,
+            learning_rate2,
+            learning_rate3,
+            batch_size
+    ):
+        self.SGD(num_epoch, learning_rate1, batch_size)
+        plt.plot(
+            np.arange(num_epoch), 
+            self.train_losses, 
+            color = 'blue', 
+            label = f'learning_rate={learning_rate1}'
+        )
+
+        self.SGD(num_epoch, learning_rate2, batch_size)
+        plt.plot(
+            np.arange(num_epoch),
+            self.train_losses,
+            color = 'red',
+            ls = '--',
+            label = f"learning_rate={learning_rate2}"
+        )
+
+        self.SGD(num_epoch, learning_rate3, batch_size)
+        plt.plot(
+            np.arange(num_epoch),
+            self.train_losses,
+            color = 'green',
+            ls = '-.',
+            label = f'learning_rate={learning_rate3}'
+        )
+
+        plt.xlabel('Epoch')
+        plt.ylabel('RMSE')
+        plt.gca().xaxis.set_major_locator(MaxNLocator(integer = True))
+        plt.legend()
+        plt.show()
+
+    def get_total_loss_plot(self, num_epoch, learning_rate, batch_size):
+        self.SGD(num_epoch, learning_rate, batch_size)
+        print('最终损失: ', self.train_losses[-1])
+
+        plt.plot(
+            np.arange(num_epoch),
+            np.log(self.train_losses),
+            color = 'blue',
+            label = f'learning_rate={learning_rate}'
+        )
+
+        plt.xlabel('Epoch')
+        plt.ylabel('log RMSE')
+        plt.gca().xaxis.set_major_locator(MaxNLocator(integer = True))
+        plt.legend()
+        plt.show()
+
+    # 这里似乎是通过图像可视化了SDG算法.想查看其他信息变化的话,
+    # 可以自行修改SDG函数,添加相关列表,从而便于访问各个数据,以
+    # 获取对应变化图像.
+
+                
+
     
 
 m = MyLinearRegression('A.csv')
@@ -316,7 +509,15 @@ m = MyLinearRegression('A.csv')
 # m.print_RMSE()
 # m.print_LinearRegression_RMSE()
 
-print(m.get_LinearRegression_theta_and_RMSE()[0])
-print(m.get_LinearRegression_theta_and_RMSE()[1])
-print(m.get_theta_and_RMSE()[0])
-print(m.get_theta_and_RMSE()[1])
+# print(m.get_LinearRegression_theta_and_RMSE()[0])
+# print(m.get_LinearRegression_theta_and_RMSE()[1])
+# print(m.get_theta_and_RMSE()[0])
+# print(m.get_theta_and_RMSE()[1])
+
+# m.test_idx([1, 2, 3 ,4 ,5])
+# m.test_yield(32)
+# pprint(m.SDG(20, 0.01, 32))
+# m.test_normal()
+# m.get_loss_plot(20, 0.01, 32)
+# m.get_learning_rate_plot(20, 0.1, 0.01, 0.001, 32)
+# m.get_total_loss_plot(20, 1.5, 32)
