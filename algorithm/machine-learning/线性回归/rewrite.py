@@ -6,16 +6,22 @@ from sklearn.linear_model import LinearRegression
 
 from typing import Optional
 from pprint import pprint
-# 说明
-"""
+# 修改日志
+"""...
     @auther 巷北
-    @time 2025.10.7 13:46
-    @version 1.2
-
-    昨天第一次写了一下,感觉还不错,但是debug方面做得不是很好,这次
-    再优化一下, 添加更多接口, 以方便查看数据结构及形式.
+    @time 2025.10.8 16:09
+    有些属性不方便查看, 统一整合一下,提供接口,便于查看.
 """
 class MyLinearRegression:
+        # 说明
+    """
+        @auther 巷北
+        @time 2025.10.7 13:46
+        @version 1.2
+
+        昨天第一次写了一下,感觉还不错,但是debug方面做得不是很好,这次
+        再优化一下, 添加更多接口, 以方便查看数据结构及形式.
+    """
 
     def __init__(
             self,
@@ -28,9 +34,9 @@ class MyLinearRegression:
         np.set_printoptions(linewidth=np.inf, suppress=suppress)
 
         self.lines, self.header = self.init_data(file_name)
-        self.split_data(ratio)
-        self.standardscaler()
-        self.split_x_y()
+        self.train, self.test = self.split_data(ratio)
+        self.standardscaler() # 隐式地归一化self.train与self.test, 需要注意一下.
+        self.x_train, self.y_train, self.x_test, self.y_test = self.split_x_y()
 
     def init_data(self, file_name):
         lines = np.loadtxt(file_name, delimiter = ',', dtype='str')
@@ -67,8 +73,10 @@ class MyLinearRegression:
         np.random.seed(0)
         lines = np.random.permutation(self.lines)
 
-        self.train= lines[:split]
-        self.test = lines[split:]
+        train= lines[:split]
+        test = lines[split:]
+
+        return train, test
     
     def print_split_data_length(self):
 
@@ -105,7 +113,6 @@ class MyLinearRegression:
         self.train_mean = scaler.mean_
         self.train_scale = scaler.scale_
 
-
         self.train = scaler.transform(self.train)
         self.test = scaler.transform(self.test)
 
@@ -123,8 +130,7 @@ class MyLinearRegression:
         print('\n')
 
     def split_x_y(self):
-        self.x_train, self.y_train = self.train[:, :-1], self.train[:, -1].flatten()
-        self.x_test, self.y_test = self.test[:, :-1], self.test[:, -1].flatten()    
+        return  self.train[:, :-1], self.train[:, -1].flatten(), self.test[:, :-1], self.test[:, -1].flatten()
 
     def print_split_x_y(self, num = 3):
         print("x_train: \n", self.x_train[:num])
@@ -195,7 +201,6 @@ class MyLinearRegression:
                 \n
             """
         )
-        print('\n')
 
     def test_concatenate(self, data):
         print(
@@ -490,34 +495,34 @@ class MyLinearRegression:
     
 
 m = MyLinearRegression('A.csv')
-# m.print_data_info()
-# m.print_init_data_sample(3)
-# m.print_split_data_length()
-# m.test_permutation(num = 7)
-# m.print_standard_data_sample(3)
-# m.print_mean_and_scale()
-# m.print_split_x_y(3)
-# m.test_flatten()
-# m.test_ones()
-# m.test_concatenate([
-#     [1, 2, 3 ,4, 5],
-#     [1, 2, 3, 4 ,5],
-#     [5, 3, 2, 4, 1],
-#     [4, 2, 1, 3, 7]
-# ])
-# m.print_theta()
-# m.print_RMSE()
-# m.print_LinearRegression_RMSE()
+m.print_data_info()
+m.print_init_data_sample(3)
+m.print_split_data_length()
+m.test_permutation(num = 7)
+m.print_standard_data_sample(3)
+m.print_mean_and_scale()
+m.print_split_x_y(3)
+m.test_flatten()
+m.test_ones()
+m.test_concatenate([
+    [1, 2, 3 ,4, 5],
+    [1, 2, 3, 4 ,5],
+    [5, 3, 2, 4, 1],
+    [4, 2, 1, 3, 7]
+])
+m.print_theta()
+m.print_RMSE()
+m.print_LinearRegression_RMSE()
 
-# print(m.get_LinearRegression_theta_and_RMSE()[0])
-# print(m.get_LinearRegression_theta_and_RMSE()[1])
-# print(m.get_theta_and_RMSE()[0])
-# print(m.get_theta_and_RMSE()[1])
+print(m.get_LinearRegression_theta_and_RMSE()[0])
+print(m.get_LinearRegression_theta_and_RMSE()[1])
+print(m.get_theta_and_RMSE()[0])
+print(m.get_theta_and_RMSE()[1])
 
-# m.test_idx([1, 2, 3 ,4 ,5])
-# m.test_yield(32)
-# pprint(m.SGD(20, 0.01, 32))
-# m.test_normal()
-# m.get_loss_plot(20, 0.01, 32)
-# m.get_learning_rate_plot(20, 0.1, 0.01, 0.001, 32)
-# m.get_total_loss_plot(20, 1.5, 32)
+m.test_idx([1, 2, 3 ,4 ,5])
+m.test_yield(32)
+pprint(m.SGD(20, 0.01, 32))
+m.test_normal()
+m.get_loss_plot(20, 0.01, 32)
+m.get_learning_rate_plot(20, 0.1, 0.01, 0.001, 32)
+m.get_total_loss_plot(20, 1.5, 32)
