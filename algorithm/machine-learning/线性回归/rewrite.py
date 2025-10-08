@@ -1,4 +1,4 @@
-from manim import *
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from sklearn.preprocessing import StandardScaler
@@ -24,7 +24,7 @@ class MyLinearRegression:
             suppress = True,
     ):
         if file_name is None:
-            raise ValueTracker("请输入文件名.")
+            raise TypeError("请输入文件名.")
         np.set_printoptions(linewidth=np.inf, suppress=suppress)
 
         self.lines, self.header = self.init_data(file_name)
@@ -516,7 +516,7 @@ m = MyLinearRegression('A.csv')
 
 # m.test_idx([1, 2, 3 ,4 ,5])
 # m.test_yield(32)
-# pprint(m.SDG(20, 0.01, 32))
+# pprint(m.SGD(20, 0.01, 32))
 # m.test_normal()
 # m.get_loss_plot(20, 0.01, 32)
 # m.get_learning_rate_plot(20, 0.1, 0.01, 0.001, 32)
