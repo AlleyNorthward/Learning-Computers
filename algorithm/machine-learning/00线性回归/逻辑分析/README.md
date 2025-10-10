@@ -26,7 +26,7 @@
 
 <p align="center">
     <a href = "https://github.com" target="_blank">
-        <img src="..\out\逻辑分析\python问题.svg" alt="python问题图片" title = "python问题">
+        <img src="..\assets\逻辑分析\python问题.svg" alt="python问题图片" title = "python问题">
     </a>
 </p>
 
@@ -46,7 +46,7 @@
 
 <p align="center">
     <a href = "https://github.com" target="_blank">
-        <img src="..\out\逻辑分析\库问题.svg" alt="库问题图片" title = "库问题">
+        <img src="..\assets\逻辑分析\库问题.svg" alt="库问题图片" title = "库问题">
     </a>
 </p>
 
@@ -56,7 +56,7 @@
 
 <p align="center">
     <a href = "https://github.com" target="_blank">
-        <img src="..\out\逻辑分析\numpy.svg" alt="numpy图片" title = "numpy">
+        <img src="..\assets\逻辑分析\numpy.svg" alt="numpy图片" title = "numpy">
     </a>
 </p>
 
@@ -66,7 +66,7 @@
 
 <p align="center">
     <a href = "https://github.com" target="_blank">
-        <img src="..\out\逻辑分析\sklearn.svg" alt="sklearn图片" title = "sklearn">
+        <img src="..\assets\逻辑分析\sklearn.svg" alt="sklearn图片" title = "sklearn">
     </a>
 </p>
 
@@ -83,7 +83,7 @@
 
 <p align="center">
     <a href = "https://github.com" target="_blank">
-        <img src="..\out\逻辑分析\debug问题解决方案.svg" alt="debug问题解决方案图片" title = "debug问题解决方案">
+        <img src="..\assets\逻辑分析\debug问题解决方案.svg" alt="debug问题解决方案图片" title = "debug问题解决方案">
     </a>
 </p>
 
@@ -97,7 +97,7 @@
 
 <p align="center">
     <a href = "https://github.com" target="_blank">
-        <img src="..\out\逻辑分析\拿到陌生代码怎么办.svg" alt="拿到陌生代码怎么办图片" title = "拿到陌生代码怎么办">
+        <img src="..\assets\逻辑分析\拿到陌生代码怎么办.svg" alt="拿到陌生代码怎么办图片" title = "拿到陌生代码怎么办">
     </a>
 </p>
 

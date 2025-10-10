@@ -1,6 +1,6 @@
 @startuml numpy
 enum numpy{
-    + no.loadtxt()
+    + np.loadtxt()
     + astype()
     + np.random.seed()
     + np.random.permutation()
