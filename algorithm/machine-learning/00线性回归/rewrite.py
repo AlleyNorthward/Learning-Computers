@@ -494,35 +494,35 @@ class MyLinearRegression:
 
     
 
-m = MyLinearRegression('A.csv')
-m.print_data_info()
-m.print_init_data_sample(3)
-m.print_split_data_length()
-m.test_permutation(num = 7)
-m.print_standard_data_sample(3)
-m.print_mean_and_scale()
-m.print_split_x_y(3)
-m.test_flatten()
-m.test_ones()
-m.test_concatenate([
-    [1, 2, 3 ,4, 5],
-    [1, 2, 3, 4 ,5],
-    [5, 3, 2, 4, 1],
-    [4, 2, 1, 3, 7]
-])
-m.print_theta()
-m.print_RMSE()
-m.print_LinearRegression_RMSE()
+# m = MyLinearRegression('A.csv')
+# m.print_data_info()
+# m.print_init_data_sample(3)
+# m.print_split_data_length()
+# m.test_permutation(num = 7)
+# m.print_standard_data_sample(3)
+# m.print_mean_and_scale()
+# m.print_split_x_y(3)
+# m.test_flatten()
+# m.test_ones()
+# m.test_concatenate([
+#     [1, 2, 3 ,4, 5],
+#     [1, 2, 3, 4 ,5],
+#     [5, 3, 2, 4, 1],
+#     [4, 2, 1, 3, 7]
+# ])
+# m.print_theta()
+# m.print_RMSE()
+# m.print_LinearRegression_RMSE()
 
-print(m.get_LinearRegression_theta_and_RMSE()[0])
-print(m.get_LinearRegression_theta_and_RMSE()[1])
-print(m.get_theta_and_RMSE()[0])
-print(m.get_theta_and_RMSE()[1])
+# print(m.get_LinearRegression_theta_and_RMSE()[0])
+# print(m.get_LinearRegression_theta_and_RMSE()[1])
+# print(m.get_theta_and_RMSE()[0])
+# print(m.get_theta_and_RMSE()[1])
 
-m.test_idx([1, 2, 3 ,4 ,5])
-m.test_yield(32)
-pprint(m.SGD(20, 0.01, 32))
-m.test_normal()
-m.get_loss_plot(20, 0.01, 32)
-m.get_learning_rate_plot(20, 0.1, 0.01, 0.001, 32)
-m.get_total_loss_plot(20, 1.5, 32)
+# m.test_idx([1, 2, 3 ,4 ,5])
+# m.test_yield(32)
+# pprint(m.SGD(20, 0.01, 32))
+# m.test_normal()
+# m.get_loss_plot(20, 0.01, 32)
+# m.get_learning_rate_plot(20, 0.1, 0.01, 0.001, 32)
+# m.get_total_loss_plot(20, 1.5, 32)
