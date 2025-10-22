@@ -59,36 +59,21 @@ def load_orl(k):
     return train_face, train_label, test_face, test_label
 
 
-# # 定义PCA算法
-# def PCA(data, r):
-#     data = np.float32(np.mat(data))
-#     rows, cols = np.shape(data)
-#     data_mean = np.mean(data, 0)  # 对列求平均值
-#     A = data - np.tile(data_mean, (rows, 1))  # 将所有样例减去对应均值得到A
-#     C = A * A.T  # 得到协方差矩阵
-#     D, V = np.linalg.eig(C)  # 求协方差矩阵的特征值和特征向量
-#     V_r = V[:, 0:r]  # 按列取前r个特征向量
-#     V_r = A.T * V_r  # 小矩阵特征向量向大矩阵特征向量过渡
-#     for i in range(r):
-#         V_r[:, i] = V_r[:, i] / np.linalg.norm(V_r[:, i])  # 特征向量归一化
-
-#     final_data = A * V_r
-#     return final_data, data_mean, V_r
-
+# 定义PCA算法
 def PCA(data, r):
-    data = np.asarray(data, dtype=np.float32)
-    rows, cols = data.shape
-    data_mean = np.mean(data, axis=0)
-    A = data - np.tile(data_mean, (rows, 1))
-    C = A @ A.T  # 协方差矩阵
-    D, V = np.linalg.eig(C)
-    V_r = V[:, :r]
-    V_r = A.T @ V_r
+    data = np.float32(np.mat(data))
+    rows, cols = np.shape(data)
+    data_mean = np.mean(data, 0)  # 对列求平均值
+    A = data - np.tile(data_mean, (rows, 1))  # 将所有样例减去对应均值得到A
+    C = A * A.T  # 得到协方差矩阵
+    D, V = np.linalg.eig(C)  # 求协方差矩阵的特征值和特征向量
+    V_r = V[:, 0:r]  # 按列取前r个特征向量
+    V_r = A.T * V_r  # 小矩阵特征向量向大矩阵特征向量过渡
     for i in range(r):
-        V_r[:, i] /= np.linalg.norm(V_r[:, i])
-    final_data = A @ V_r
-    return final_data, data_mean, V_r
+        V_r[:, i] = V_r[:, i] / np.linalg.norm(V_r[:, i])  # 特征向量归一化
 
+    final_data = A * V_r
+    return final_data, data_mean, V_r
 
 
 # 人脸识别
