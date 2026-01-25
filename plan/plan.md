@@ -182,7 +182,7 @@
 **安排**
 
 <details>
-<summary>项目安排</summary>
+<summary><mask>项目安排</mask></summary>
 
 - 设计模式简介 1/26
 - 面向对象设计原则 1/27
@@ -214,7 +214,7 @@
 </details>
 
 <details>
-<summary>是否按时完成</summary>
+<summary><mask>是否按时完成</mask></summary>
 
 - [ ] 1/26
 - [ ] 1/27
@@ -246,7 +246,7 @@
 </details>
 
 <details>
-<summary>是否补学</summary>
+<summary><mask>是否补学</mask></summary>
 </details
 
 #### linux
