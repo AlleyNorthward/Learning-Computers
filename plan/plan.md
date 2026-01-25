@@ -215,8 +215,10 @@
 
 <details>
 <summary>是否按时完成</summary>
+
 - [ ] 是
 - [ ] 否
+
 </details>
 
 #### linux
