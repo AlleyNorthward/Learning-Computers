@@ -40,4 +40,8 @@ function Open-github{
 	& "C:\Program Files\Google\Chrome\Application\chrome.exe" "https://github.com"
 }
 
+function Open-pu{
+  ssh -i "C:\Users\HP\.ssh\id_rsa" root@115.28.208.100
+}
+
 Export-ModuleMember -Function *

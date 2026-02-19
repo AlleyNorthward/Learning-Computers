@@ -6,11 +6,10 @@ function Save-position {
 function Restore-position {
     if ($DirMark) {
         Set-Location $DirMark
-	Write-Host "Restore Location."
+        Write-Host "Restore Location."
     } else {
         Write-Host "No location has been marked yet."
     }
 }
-
 
 Export-ModuleMember -Function @("Save-position", "Restore-position")

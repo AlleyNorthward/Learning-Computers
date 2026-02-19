@@ -1,39 +1,33 @@
-function Invoke-Main {
-    param()
+function Set-Opacity {
+    param(
+        [Parameter(Position=0)]
+        [ValidateRange(0,100)]
+        [int]$opacity = 25,
 
-    # 设置源文件和输出文件
-    $source = ".\main.c"
-    $output = ".\main.exe"
-
-    # 包含头文件路径
-    $includePaths = @(
-        "."
-        "..\App\led"
-        "..\App\clock"
-        "..\App\beep"
-        "..\App\key"
-        "..\Public"
-        "..\Libraries\CMSIS"
+        [Parameter(Position=1)]
+        [bool]$useAcrylic = $false
     )
 
-    # 拼接 -I 参数
-    $includeArgs = $includePaths | ForEach-Object { "-I `"$($_)`"" } | Out-String
-    $includeArgs = $includeArgs -replace "\r?\n", " "  # 去掉换行
+    $Path = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
-    # 编译命令
-    $compileCmd = "gcc $source $includeArgs -o $output"
+    if (-not (Test-Path $Path)) {
+        Write-Error "找不到 Windows Terminal 配置文件: $Path"
+        return
+    }
 
-    Write-Host "Compiling..."
-    Write-Host $compileCmd
-    Invoke-Expression $compileCmd
+    try {
+        $Json = Get-Content $Path -Raw | ConvertFrom-Json
 
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "Compilation succeeded. Running $output ..."
-        & $output
-    } else {
-        Write-Host "Compilation failed."
+        $Json.profiles.defaults.opacity    = $opacity
+        $Json.profiles.defaults.useAcrylic = $useAcrylic
+
+        $Json | ConvertTo-Json -Depth 20 |
+            Set-Content $Path -Encoding UTF8
+
+        Write-Host "已设置: 透明度=$Opacity, 亚克力=$UseAcrylic"
+    }
+    catch {
+        Write-Error "修改失败: $_"
     }
 }
-
-
-Export-ModuleMember -Function Invoke-Main
+Export-ModuleMember -Function Set-Opacity
