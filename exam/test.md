@@ -1,6 +1,6 @@
 <details>
-<summary>
-<mark># 测试</mark>
+    <summary>
+        <mark><strong>测试</strong></mark>
 
-</summary>
+    </summary>
 </details>
