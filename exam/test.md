@@ -1,16 +1,19 @@
 <details>
-<summary><mark>测试</mark></summary>
+  <summary><strong>🟦 Level 1：系统设计</strong></summary>
 
-- 测试1
-- 测试2
+内容A
 
 <details>
-  <summary><strong>👉 子折叠</strong></summary>
+  <summary><strong>🟨 Level 2：模块设计</strong></summary>
 
-  这里是子内容
+内容B
 
-  - 子项1
-  - 子项2
+<details>
+  <summary><strong>🟥 Level 3：实现细节</strong></summary>
+
+内容C
+
+</details>
 
 </details>
 
