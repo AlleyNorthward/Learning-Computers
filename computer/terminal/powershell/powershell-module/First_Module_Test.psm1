@@ -11,7 +11,7 @@ function Edit-profile{
 }
 
 function Copy-path{
-        pwd | Select-Object -ExpandProperty Path | Set-Clipboard
+  pwd | Select-Object -ExpandProperty Path | Set-Clipboard
 }
 
 
@@ -33,7 +33,7 @@ function Open-xxt{
 }
 
 function Show-path{
-        nvim "F:\0github\Learning-Computers\computer\terminal\powershell\powershell-module\package\path_marks.json"
+    nvim "F:\0github\Learning-Computers\computer\terminal\powershell\powershell-module\package\path_marks.json"
 }
 
 function Open-github{

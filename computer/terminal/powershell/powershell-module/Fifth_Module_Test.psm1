@@ -30,4 +30,30 @@ function Set-Opacity {
         Write-Error "修改失败: $_"
     }
 }
-Export-ModuleMember -Function Set-Opacity
+
+function Get-Opacity {
+
+    $Path = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+
+    if (-not (Test-Path $Path)) {
+        Write-Error "找不到 Windows Terminal 配置文件: $Path"
+        return
+    }
+
+    try {
+        $Json = Get-Content $Path -Raw | ConvertFrom-Json
+
+        $opacity    = $Json.profiles.defaults.opacity
+        $useAcrylic = $Json.profiles.defaults.useAcrylic
+
+        [PSCustomObject]@{
+            Opacity    = $opacity
+            UseAcrylic = $useAcrylic
+        }
+    }
+    catch {
+        Write-Error "读取失败: $_"
+    }
+}
+
+Export-ModuleMember -Function @("Set-Opacity", "Get-Opacity")
