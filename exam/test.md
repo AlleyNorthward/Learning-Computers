@@ -1,20 +1,37 @@
 <details>
-  <summary><strong>🟦 Level 1：系统设计</strong></summary>
-
-内容A
+  <summary><strong>🟩 你好</strong></summary>
 
 <details>
-  <summary><strong>🟨 Level 2：模块设计</strong></summary>
-
-内容B
+  <summary><strong>🟦 你好</strong></summary>
 
 <details>
-  <summary><strong>🟥 Level 3：实现细节</strong></summary>
+  <summary><strong>🟨 你好</strong></summary>
 
-内容C
+<details>
+  <summary><strong>🟥 你好</strong></summary>
+
+
 
 </details>
 
-</details>
 
 </details>
+
+
+</details>
+
+
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
