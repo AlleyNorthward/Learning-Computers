@@ -4,11 +4,13 @@
 # 简介
 整体框架按照线性代数应该这样学这本书的目录架构来绘制的MappingDesc, 如果该书不全面, 对应目录下面还会给出其它参考书籍的相关内容.
 
+---
+
 <details>
   <summary><strong>🟩 向量空间</strong></summary>
 
 <details>
-  <summary><strong>🟦 \(\mathbb{R^n}\)与\(\mathbb{C^n}\)</strong></summary>
+  <summary><strong>🟦 $\mathbb{R^n}$与$\mathbb{C^n}& </strong></summary>
 
 
 
