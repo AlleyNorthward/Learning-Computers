@@ -1,4 +1,4 @@
-@startuml mappingDesc
+@startuml MappingDesc
 class MappingDesc {
     + id
     + 知识与理解
