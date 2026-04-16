@@ -10,7 +10,7 @@
   <summary><strong>🟩 向量空间</strong></summary>
 
 <details>
-  <summary><strong>🟦 $$R^n$$与$$C^n$$ </strong></summary>
+  <summary><strong>🟦 $R^n与C^n$ </strong></summary>
 
 
 
