@@ -8,20 +8,8 @@
   <summary><strong>🟩 向量空间</strong></summary>
 
 <details>
-  <summary><strong>🟦 $R^n$与$C^n$</strong></summary>
+  <summary><strong>🟦 \(\mathbb{R^n}\)与\(\mathbb{C^n}\)</strong></summary>
 
-<div align = "center">
-
-|key|value|
-|:---:|:---:|
-|id|001|
-|知识与理解|[见此](https://github.com/AlleyNorthward/Learning-Computers/tree/main/exam/mapping),[见此](https://github.com/AlleyNorthward/Learning-Computers/tree/main/exam/mapping)|
-|题目汇总|嘿嘿|
-|做题汇总|嘿嘿|
-|创立时间|嘿嘿|
-|关联Mapping|嘿嘿|
-
-<div>
 
 
 </details>
